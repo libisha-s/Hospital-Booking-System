@@ -1,5 +1,16 @@
-import Home from "./pages/Home";
-function App(){
-  return <Home/>
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { AppProvider } from './context/AppContext';
+import AppRouter from './router/AppRouter';
+
+function App() {
+  return (
+    <AppProvider>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </AppProvider>
+  );
 }
+
 export default App;
