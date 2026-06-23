@@ -18,10 +18,10 @@ function RatingStars({ rating }) {
         ))}
         {hasHalf && <FaStarHalfAlt className="w-3.5 h-3.5 fill-current" />}
         {[...Array(emptyStars)].map((_, i) => (
-          <FaRegStar key={`empty-${i}`} className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 fill-current" />
+          <FaRegStar key={`empty-${i}`} className="w-3.5 h-3.5 text-slate-300 text-slate-600 fill-current" />
         ))}
       </div>
-      <span className="text-xs font-bold text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
+      <span className="text-xs font-bold text-slate-600 text-slate-300 bg-slate-100 bg-slate-800 px-2 py-0.5 rounded-md">
         {score.toFixed(1)}
       </span>
     </div>

@@ -26,12 +26,12 @@ function DoctorDetailsPage() {
   if (!doctor) {
     return (
       <div className="text-center py-20 space-y-4">
-        <div className="w-16 h-16 bg-rose-50 dark:bg-rose-950/20 rounded-full flex items-center justify-center mx-auto text-rose-500">
+        <div className="w-16 h-16 bg-rose-50 bg-rose-950/20 rounded-full flex items-center justify-center mx-auto text-rose-500">
           <HiOutlineArrowLeft className="w-8 h-8" />
         </div>
         <h3 className="text-xl font-bold">Doctor Not Found</h3>
         <p className="text-sm text-slate-500">The doctor you are looking for does not exist in our roster.</p>
-        <Link to="/" className="inline-block bg-emerald-500 text-white px-6 py-2 rounded-xl text-sm font-semibold">
+        <Link to="/" className="inline-block bg-primary-500 text-black px-6 py-2 rounded-xl text-sm font-semibold">
           Back to Home
         </Link>
       </div>
@@ -81,7 +81,7 @@ function DoctorDetailsPage() {
       <div>
         <Link 
           to="/" 
-          className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-primary-600 text-slate-400 hover:text-primary-400 transition-colors"
         >
           <HiOutlineArrowLeft className="w-5 h-5" />
           Back to Doctor Directory
@@ -92,15 +92,15 @@ function DoctorDetailsPage() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         
         {/* Left Column - Large Image */}
-        <div className="md:col-span-5 bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-premium border border-slate-100 dark:border-slate-700/60 p-4 shrink-0">
-          <div className="relative aspect-square rounded-2xl overflow-hidden bg-emerald-50 dark:bg-slate-900">
+        <div className="md:col-span-5 bg-white bg-slate-800 rounded-3xl overflow-hidden shadow-premium border border-slate-100 border-slate-700/60 p-4 shrink-0">
+          <div className="relative aspect-square rounded-2xl overflow-hidden bg-primary-50 bg-slate-900">
             <img
               src={doctor.imageUrl || 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=400'}
               alt={doctor.name}
               className="w-full h-full object-cover"
             />
             {isAvailableToday && (
-              <span className="absolute top-4 left-4 bg-emerald-500 text-white text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
+              <span className="absolute top-4 left-4 bg-primary-500 text-black text-xs font-bold px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
                 Available Today
               </span>
@@ -113,29 +113,29 @@ function DoctorDetailsPage() {
           
           {/* Header text */}
           <div className="space-y-3">
-            <span className="bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
+            <span className="bg-primary-50 bg-primary-950/40 text-primary-600 text-primary-400 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
               {formatDept(doctor.department)} Specialist
             </span>
-            <h1 className="text-3xl md:text-5xl font-extrabold text-slate-800 dark:text-white leading-tight">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-slate-800 text-black leading-tight">
               {doctor.name}
             </h1>
             
             <div className="flex flex-wrap items-center gap-4">
               <RatingStars rating={doctor.rating} />
-              <span className="text-slate-300 dark:text-slate-700">•</span>
-              <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+              <span className="text-slate-300 text-slate-700">•</span>
+              <span className="text-sm font-semibold text-slate-500 text-slate-400">
                 {doctor.experience} Experience
               </span>
-              <span className="text-slate-300 dark:text-slate-700">•</span>
-              <span className="text-sm font-bold text-emerald-500 dark:text-emerald-400">
+              <span className="text-slate-300 text-slate-700">•</span>
+              <span className="text-sm font-bold text-primary-500 text-primary-400">
                 Fee: ${doctor.consultingFee} USD
               </span>
             </div>
           </div>
 
-          <div className="border-t border-slate-100 dark:border-slate-800 pt-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-800 dark:text-white">Professional Profile</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          <div className="border-t border-slate-100 border-slate-800 pt-6 space-y-4">
+            <h3 className="text-lg font-bold text-slate-800 text-black">Professional Profile</h3>
+            <p className="text-sm text-slate-600 text-slate-300 leading-relaxed">
               Dr. {doctor.name.split('. ').pop()} is a highly trained specialist in the department of {formatDept(doctor.department)}. 
               Possessing over {doctor.experience.split(' ')[0]} years of patient-centric service, they are dedicated to delivering robust healthcare options, custom treatments, and diagnostic treatments.
             </p>
@@ -143,18 +143,18 @@ function DoctorDetailsPage() {
 
           {/* Info cards row */}
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-850 flex items-center gap-3">
-              <HiOutlineShieldCheck className="w-8 h-8 text-emerald-500" />
+            <div className="bg-slate-50 bg-slate-900 p-4 rounded-2xl border border-slate-100 border-slate-850 flex items-center gap-3">
+              <HiOutlineShieldCheck className="w-8 h-8 text-primary-500" />
               <div>
                 <h5 className="text-xs font-bold text-slate-400 uppercase">Verified Doctor</h5>
-                <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-0.5">Board Certified Specialist</p>
+                <p className="text-xs font-semibold text-slate-600 text-slate-300 mt-0.5">Board Certified Specialist</p>
               </div>
             </div>
-            <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-2xl border border-slate-100 dark:border-slate-850 flex items-center gap-3">
-              <HiOutlineClock className="w-8 h-8 text-emerald-500" />
+            <div className="bg-slate-50 bg-slate-900 p-4 rounded-2xl border border-slate-100 border-slate-850 flex items-center gap-3">
+              <HiOutlineClock className="w-8 h-8 text-primary-500" />
               <div>
                 <h5 className="text-xs font-bold text-slate-400 uppercase">Avg Response</h5>
-                <p className="text-xs font-semibold text-slate-600 dark:text-slate-300 mt-0.5">Under 15 minutes</p>
+                <p className="text-xs font-semibold text-slate-600 text-slate-300 mt-0.5">Under 15 minutes</p>
               </div>
             </div>
           </div>
@@ -164,9 +164,9 @@ function DoctorDetailsPage() {
       </div>
 
       {/* Appointment Slots Area */}
-      <div className="border-t border-slate-200 dark:border-slate-800 pt-10 space-y-6">
+      <div className="border-t border-slate-200 border-slate-800 pt-10 space-y-6">
         <div>
-          <h2 className="text-2xl font-extrabold text-slate-800 dark:text-white">Choose a Booking Slot</h2>
+          <h2 className="text-2xl font-extrabold text-slate-800 text-black">Choose a Booking Slot</h2>
           <p className="text-sm text-slate-500 mt-1">Select an available day and time slot to book your consulting appointment.</p>
         </div>
 
@@ -184,19 +184,19 @@ function DoctorDetailsPage() {
             ))}
           </div>
         ) : (
-          <div className="bg-amber-50 dark:bg-amber-950/20 text-amber-800 dark:text-amber-300 p-5 rounded-2xl border border-amber-100 dark:border-amber-900/40 text-sm font-semibold">
+          <div className="bg-amber-50 bg-amber-950/20 text-amber-800 text-amber-300 p-5 rounded-2xl border border-amber-100 border-amber-900/40 text-sm font-semibold">
             No regular weekly availability has been configured for Dr. {doctor.name} yet. Please check back later.
           </div>
         )}
 
         {/* Selected Slot Recap */}
         {selectedDay && selectedSlotTime && (
-          <div className="bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-900/40 p-4 rounded-2xl flex flex-wrap items-center justify-between gap-4">
+          <div className="bg-primary-50 bg-primary-950/40 border border-primary-100 border-primary-900/40 p-4 rounded-2xl flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-3">
-              <FaRegCheckCircle className="text-emerald-500 text-xl" />
+              <FaRegCheckCircle className="text-primary-500 text-xl" />
               <div>
                 <p className="text-xs font-bold text-slate-500 uppercase">Selected Appointment Schedule</p>
-                <p className="text-sm font-bold text-slate-700 dark:text-emerald-300 mt-0.5">
+                <p className="text-sm font-bold text-slate-700 text-primary-300 mt-0.5">
                   {selectedDay.charAt(0) + selectedDay.slice(1).toLowerCase()} at {selectedSlotTime}
                 </p>
               </div>
@@ -204,7 +204,7 @@ function DoctorDetailsPage() {
             
             <button
               onClick={handleBookClick}
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-xl shadow-md text-sm transition-all"
+              className="bg-primary-500 hover:bg-primary-600 text-black font-bold px-6 py-2.5 rounded-xl shadow-md text-sm transition-all"
             >
               Book Appointment
             </button>

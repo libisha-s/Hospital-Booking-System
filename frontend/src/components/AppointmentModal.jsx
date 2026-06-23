@@ -129,17 +129,17 @@ function AppointmentModal({ isOpen, onClose, doctor, initialDay = '', initialSlo
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-white dark:bg-slate-800 rounded-3xl w-full max-w-lg shadow-2xl relative border border-slate-150 dark:border-slate-700 overflow-hidden transform transition-all animate-in fade-in zoom-in-95 duration-200">
+      <div className="bg-white bg-slate-800 rounded-3xl w-full max-w-lg shadow-2xl relative border border-slate-150 border-slate-700 overflow-hidden transform transition-all animate-in fade-in zoom-in-95 duration-200">
         
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-700 bg-emerald-50 dark:bg-slate-900/50">
+        <div className="flex items-center justify-between p-6 border-b border-slate-100 border-slate-700 bg-primary-50 bg-slate-900/50">
           <div>
-            <h3 className="text-xl font-extrabold text-slate-800 dark:text-white">Book Appointment</h3>
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-1">Fill in the details to schedule your slot</p>
+            <h3 className="text-xl font-extrabold text-slate-800 text-black">Book Appointment</h3>
+            <p className="text-xs font-semibold text-slate-500 text-slate-400 mt-1">Fill in the details to schedule your slot</p>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-600 dark:hover:bg-slate-700 dark:hover:text-slate-200 transition-colors"
+            className="p-1.5 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-600 hover:bg-slate-700 hover:text-slate-200 transition-colors"
           >
             <HiX className="w-6 h-6" />
           </button>
@@ -149,38 +149,38 @@ function AppointmentModal({ isOpen, onClose, doctor, initialDay = '', initialSlo
         <form onSubmit={handleConfirm} className="p-6 space-y-4">
           
           {/* Readonly Info */}
-          <div className="grid grid-cols-2 gap-4 bg-slate-50 dark:bg-slate-900/40 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/60">
+          <div className="grid grid-cols-2 gap-4 bg-slate-50 bg-slate-900/40 p-4 rounded-2xl border border-slate-100 border-slate-700/60">
             <div>
-              <label className="block text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Doctor</label>
+              <label className="block text-[10px] font-bold text-slate-400 text-slate-500 uppercase tracking-wider">Doctor</label>
               <input
                 type="text"
                 readOnly
                 value={doctor.name}
-                className="w-full bg-transparent text-sm font-bold text-slate-700 dark:text-slate-200 border-none outline-none p-0 cursor-default"
+                className="w-full bg-transparent text-sm font-bold text-slate-700 text-slate-200 border-none outline-none p-0 cursor-default"
               />
             </div>
             <div>
-              <label className="block text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Department</label>
+              <label className="block text-[10px] font-bold text-slate-400 text-slate-500 uppercase tracking-wider">Department</label>
               <input
                 type="text"
                 readOnly
                 value={formatDept(doctor.department)}
-                className="w-full bg-transparent text-sm font-bold text-slate-700 dark:text-slate-200 border-none outline-none p-0 cursor-default"
+                className="w-full bg-transparent text-sm font-bold text-slate-700 text-slate-200 border-none outline-none p-0 cursor-default"
               />
             </div>
           </div>
 
           {/* Patient Name */}
           <div>
-            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">Patient Name *</label>
+            <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1.5">Patient Name *</label>
             <input
               type="text"
               value={patientName}
               onChange={(e) => setPatientName(e.target.value)}
               placeholder="Full Name"
               disabled={isSaving}
-              className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:text-white transition-all ${
-                errors.patientName ? 'border-rose-500 bg-rose-50/20' : 'border-slate-200 dark:border-slate-700'
+              className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-black transition-all ${
+                errors.patientName ? 'border-rose-500 bg-rose-50/20' : 'border-slate-200 border-slate-700'
               }`}
             />
             {errors.patientName && (
@@ -191,7 +191,7 @@ function AppointmentModal({ isOpen, onClose, doctor, initialDay = '', initialSlo
           {/* Age & DOB */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">Age *</label>
+              <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1.5">Age *</label>
               <input
                 type="number"
                 min="1"
@@ -199,8 +199,8 @@ function AppointmentModal({ isOpen, onClose, doctor, initialDay = '', initialSlo
                 onChange={(e) => setAge(e.target.value)}
                 placeholder="Years"
                 disabled={isSaving}
-                className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:text-white transition-all ${
-                  errors.age ? 'border-rose-500 bg-rose-50/20' : 'border-slate-200 dark:border-slate-700'
+                className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-black transition-all ${
+                  errors.age ? 'border-rose-500 bg-rose-50/20' : 'border-slate-200 border-slate-700'
                 }`}
               />
               {errors.age && (
@@ -209,25 +209,25 @@ function AppointmentModal({ isOpen, onClose, doctor, initialDay = '', initialSlo
             </div>
             
             <div>
-              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">Date of Birth</label>
+              <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1.5">Date of Birth</label>
               <input
                 type="date"
                 value={dob}
                 onChange={(e) => setDob(e.target.value)}
                 disabled={isSaving}
-                className="w-full bg-slate-55 dark:bg-slate-900 text-sm border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:text-white transition-all"
+                className="w-full bg-slate-55 bg-slate-900 text-sm border border-slate-200 border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-black transition-all"
               />
             </div>
           </div>
 
           {/* Gender */}
           <div>
-            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">Gender</label>
+            <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1.5">Gender</label>
             <select
               value={gender}
               onChange={(e) => setGender(e.target.value)}
               disabled={isSaving}
-              className="w-full bg-slate-55 dark:bg-slate-900 text-sm border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:text-white transition-all"
+              className="w-full bg-slate-55 bg-slate-900 text-sm border border-slate-200 border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-black transition-all"
             >
               <option value="MALE">Male</option>
               <option value="FEMALE">Female</option>
@@ -239,13 +239,13 @@ function AppointmentModal({ isOpen, onClose, doctor, initialDay = '', initialSlo
           {/* Day & Time Slot dropdowns */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">Day *</label>
+              <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1.5">Day *</label>
               <select
                 value={day}
                 onChange={handleDayChange}
                 disabled={isSaving}
-                className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:text-white transition-all ${
-                  errors.day ? 'border-rose-500 bg-rose-50/20' : 'border-slate-200 dark:border-slate-700'
+                className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-black transition-all ${
+                  errors.day ? 'border-rose-500 bg-rose-50/20' : 'border-slate-200 border-slate-700'
                 }`}
               >
                 <option value="">-- Choose Day --</option>
@@ -261,13 +261,13 @@ function AppointmentModal({ isOpen, onClose, doctor, initialDay = '', initialSlo
             </div>
 
             <div>
-              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1.5">Available Slot *</label>
+              <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1.5">Available Slot *</label>
               <select
                 value={slotTime}
                 onChange={(e) => setSlotTime(e.target.value)}
                 disabled={isSaving || !day}
-                className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent dark:text-white transition-all ${
-                  errors.slotTime ? 'border-rose-500 bg-rose-50/20' : 'border-slate-200 dark:border-slate-700'
+                className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent text-black transition-all ${
+                  errors.slotTime ? 'border-rose-500 bg-rose-50/20' : 'border-slate-200 border-slate-700'
                 }`}
               >
                 <option value="">-- Choose Slot --</option>
@@ -284,23 +284,23 @@ function AppointmentModal({ isOpen, onClose, doctor, initialDay = '', initialSlo
           </div>
 
           {/* Footer Action buttons */}
-          <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-700 mt-6">
+          <div className="flex items-center justify-end gap-3 pt-4 border-t border-slate-100 border-slate-700 mt-6">
             <button
               type="button"
               onClick={onClose}
               disabled={isSaving}
-              className="px-5 py-2.5 rounded-xl text-sm font-semibold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+              className="px-5 py-2.5 rounded-xl text-sm font-semibold border border-slate-200 border-slate-700 text-slate-600 text-slate-300 hover:bg-slate-50 hover:bg-slate-800 transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSaving}
-              className="bg-emerald-500 hover:bg-emerald-600 disabled:bg-emerald-400 text-white font-semibold py-2.5 px-6 rounded-xl shadow-md shadow-emerald-500/10 hover:shadow-emerald-500/20 transition-all duration-200 text-sm flex items-center gap-2"
+              className="bg-primary-500 hover:bg-primary-600 disabled:bg-primary-400 text-black font-semibold py-2.5 px-6 rounded-xl shadow-md shadow-primary-500/10 hover:shadow-primary-500/20 transition-all duration-200 text-sm flex items-center gap-2"
             >
               {isSaving ? (
                 <>
-                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-black" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>

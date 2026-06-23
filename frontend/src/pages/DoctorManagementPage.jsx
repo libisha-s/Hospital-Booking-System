@@ -124,13 +124,13 @@ function DoctorManagementPage() {
       {/* Header controls */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-800 dark:text-white">Doctor Roster Management</h1>
+          <h1 className="text-3xl font-extrabold text-slate-800 text-black">Doctor Roster Management</h1>
           <p className="text-sm text-slate-500 mt-1">Add, update or remove medical consultants from the system catalog.</p>
         </div>
         
         <button
           onClick={handleOpenAdd}
-          className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-5 py-3 rounded-xl shadow-md shadow-sky-500/10 hover:shadow-sky-500/20 transition-all duration-200 text-sm flex items-center gap-2 self-stretch sm:self-auto justify-center"
+          className="bg-sky-500 hover:bg-sky-600 text-black font-bold px-5 py-3 rounded-xl shadow-md shadow-sky-500/10 hover:shadow-sky-500/20 transition-all duration-200 text-sm flex items-center gap-2 self-stretch sm:self-auto justify-center"
         >
           <FaPlus />
           Add Doctor
@@ -138,7 +138,7 @@ function DoctorManagementPage() {
       </div>
 
       {/* Roster Table controls */}
-      <div className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-premium border border-slate-100 dark:border-slate-700/60 p-4 space-y-4">
+      <div className="bg-white bg-slate-800 rounded-3xl overflow-hidden shadow-premium border border-slate-100 border-slate-700/60 p-4 space-y-4">
         
         {/* Search */}
         <div className="relative max-w-sm w-full">
@@ -150,7 +150,7 @@ function DoctorManagementPage() {
             placeholder="Search by name..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 pl-10 pr-4 py-2 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all"
+            className="w-full bg-slate-50 bg-slate-900 text-slate-800 text-slate-100 border border-slate-200 border-slate-700 pl-10 pr-4 py-2 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-sky-500 transition-all"
           />
         </div>
 
@@ -158,7 +158,7 @@ function DoctorManagementPage() {
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
-              <tr className="border-b border-slate-100 dark:border-slate-700 text-slate-450 dark:text-slate-400 font-bold uppercase text-[10px] tracking-wider bg-slate-50/50 dark:bg-slate-900/50">
+              <tr className="border-b border-slate-100 border-slate-700 text-slate-450 text-slate-400 font-bold uppercase text-[10px] tracking-wider bg-slate-50/50 bg-slate-900/50">
                 <th className="py-3 px-4">Profile</th>
                 <th className="py-3 px-4">Name</th>
                 <th className="py-3 px-4">Department</th>
@@ -168,9 +168,9 @@ function DoctorManagementPage() {
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60">
+            <tbody className="divide-y divide-slate-100 divide-slate-700/60">
               {filteredDoctors.map((doc) => (
-                <tr key={doc.id} className="hover:bg-slate-50/30 dark:hover:bg-slate-750/30 transition-colors">
+                <tr key={doc.id} className="hover:bg-slate-50/30 hover:bg-slate-750/30 transition-colors">
                   <td className="py-3.5 px-4">
                     <img
                       src={doc.imageUrl || 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=100'}
@@ -178,27 +178,27 @@ function DoctorManagementPage() {
                       className="w-10 h-10 rounded-xl object-cover bg-slate-100"
                     />
                   </td>
-                  <td className="py-3.5 px-4 font-bold text-slate-800 dark:text-slate-200">{doc.name}</td>
+                  <td className="py-3.5 px-4 font-bold text-slate-800 text-slate-200">{doc.name}</td>
                   <td className="py-3.5 px-4">
-                    <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-sky-50 text-sky-600 dark:bg-sky-950/40 dark:text-sky-400">
+                    <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-sky-50 text-sky-600 bg-sky-950/40 text-sky-400">
                       {formatDept(doc.department)}
                     </span>
                   </td>
-                  <td className="py-3.5 px-4 text-slate-500 dark:text-slate-400 font-medium">{doc.experience}</td>
+                  <td className="py-3.5 px-4 text-slate-500 text-slate-400 font-medium">{doc.experience}</td>
                   <td className="py-3.5 px-4 text-amber-500 font-bold">★ {doc.rating.toFixed(1)}</td>
-                  <td className="py-3.5 px-4 text-emerald-500 font-extrabold">${doc.consultingFee}</td>
+                  <td className="py-3.5 px-4 text-primary-500 font-extrabold">${doc.consultingFee}</td>
                   <td className="py-3.5 px-4 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => handleOpenEdit(doc)}
-                        className="p-2 rounded-lg text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-950/30 transition-colors"
+                        className="p-2 rounded-lg text-sky-500 hover:bg-sky-50 hover:bg-sky-950/30 transition-colors"
                         title="Edit Doctor"
                       >
                         <FaEdit />
                       </button>
                       <button
                         onClick={() => handleDelete(doc.id, doc.name)}
-                        className="p-2 rounded-lg text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors"
+                        className="p-2 rounded-lg text-rose-500 hover:bg-rose-50 hover:bg-rose-950/30 transition-colors"
                         title="Delete Doctor"
                       >
                         <FaTrash />
@@ -224,16 +224,16 @@ function DoctorManagementPage() {
       {/* Add/Edit Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-3xl w-full max-w-md shadow-2xl relative border border-slate-150 dark:border-slate-700/60 overflow-hidden transform transition-all animate-in fade-in zoom-in-95 duration-200">
+          <div className="bg-white bg-slate-800 rounded-3xl w-full max-w-md shadow-2xl relative border border-slate-150 border-slate-700/60 overflow-hidden transform transition-all animate-in fade-in zoom-in-95 duration-200">
             
             {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-700 bg-sky-50 dark:bg-slate-900/50">
-              <h3 className="text-lg font-extrabold text-slate-850 dark:text-white">
+            <div className="flex items-center justify-between p-6 border-b border-slate-100 border-slate-700 bg-sky-50 bg-slate-900/50">
+              <h3 className="text-lg font-extrabold text-slate-850 text-black">
                 {editingId ? 'Edit Doctor Profile' : 'Add New Doctor'}
               </h3>
               <button
                 onClick={() => setModalOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700"
+                className="p-1 rounded-lg text-slate-400 hover:bg-slate-100 hover:bg-slate-700"
               >
                 <FaTimes />
               </button>
@@ -243,25 +243,25 @@ function DoctorManagementPage() {
             <form onSubmit={handleSave} className="p-6 space-y-4">
               
               <div>
-                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Doctor Name *</label>
+                <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Doctor Name *</label>
                 <input
                   type="text"
                   placeholder="e.g. Dr. Arthur Pendelton"
                   value={formName}
                   onChange={(e) => setFormName(e.target.value)}
-                  className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white ${
-                    errors.name ? 'border-rose-500' : 'border-slate-200 dark:border-slate-700'
+                  className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black ${
+                    errors.name ? 'border-rose-500' : 'border-slate-200 border-slate-700'
                   }`}
                 />
                 {errors.name && <p className="text-xs text-rose-500 font-medium mt-1">{errors.name}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Department</label>
+                <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Department</label>
                 <select
                   value={formDept}
                   onChange={(e) => setFormDept(e.target.value)}
-                  className="w-full bg-slate-55 dark:bg-slate-900 text-sm border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white"
+                  className="w-full bg-slate-55 bg-slate-900 text-sm border border-slate-200 border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black"
                 >
                   {DEPARTMENTS.map((dept) => (
                     <option key={dept} value={dept}>
@@ -273,21 +273,21 @@ function DoctorManagementPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Experience *</label>
+                  <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Experience *</label>
                   <input
                     type="text"
                     placeholder="e.g. 10 Years"
                     value={formExp}
                     onChange={(e) => setFormExp(e.target.value)}
-                    className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white ${
-                      errors.experience ? 'border-rose-500' : 'border-slate-200 dark:border-slate-700'
+                    className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black ${
+                      errors.experience ? 'border-rose-500' : 'border-slate-200 border-slate-700'
                     }`}
                   />
                   {errors.experience && <p className="text-xs text-rose-500 font-medium mt-1">{errors.experience}</p>}
                 </div>
                 
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Rating (1-5) *</label>
+                  <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Rating (1-5) *</label>
                   <input
                     type="number"
                     step="0.1"
@@ -296,8 +296,8 @@ function DoctorManagementPage() {
                     placeholder="4.8"
                     value={formRating}
                     onChange={(e) => setFormRating(e.target.value)}
-                    className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white ${
-                      errors.rating ? 'border-rose-500' : 'border-slate-200 dark:border-slate-700'
+                    className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black ${
+                      errors.rating ? 'border-rose-500' : 'border-slate-200 border-slate-700'
                     }`}
                   />
                   {errors.rating && <p className="text-xs text-rose-500 font-medium mt-1">{errors.rating}</p>}
@@ -305,44 +305,44 @@ function DoctorManagementPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Consulting Fee ($) *</label>
+                <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Consulting Fee ($) *</label>
                 <input
                   type="number"
                   min="1"
                   placeholder="150"
                   value={formFee}
                   onChange={(e) => setFormFee(e.target.value)}
-                  className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white ${
-                    errors.fee ? 'border-rose-500' : 'border-slate-200 dark:border-slate-700'
+                  className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black ${
+                    errors.fee ? 'border-rose-500' : 'border-slate-200 border-slate-700'
                   }`}
                 />
                 {errors.fee && <p className="text-xs text-rose-500 font-medium mt-1">{errors.fee}</p>}
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Image URL</label>
+                <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Image URL</label>
                 <input
                   type="text"
                   placeholder="https://..."
                   value={formImg}
                   onChange={(e) => setFormImg(e.target.value)}
-                  className="w-full bg-slate-55 dark:bg-slate-900 text-sm border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white"
+                  className="w-full bg-slate-55 bg-slate-900 text-sm border border-slate-200 border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black"
                 />
                 <p className="text-[10px] text-slate-400 mt-1">Leave empty to auto-generate a professional stock profile avatar.</p>
               </div>
 
               {/* Form Actions */}
-              <div className="flex justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-700 mt-6">
+              <div className="flex justify-end gap-3 pt-4 border-t border-slate-100 border-slate-700 mt-6">
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="px-5 py-2 rounded-xl text-sm font-semibold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors"
+                  className="px-5 py-2 rounded-xl text-sm font-semibold border border-slate-200 border-slate-700 text-slate-600 text-slate-350 hover:bg-slate-50 hover:bg-slate-750 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-6 rounded-xl shadow-md text-sm transition-all"
+                  className="bg-sky-500 hover:bg-sky-600 text-black font-bold py-2 px-6 rounded-xl shadow-md text-sm transition-all"
                 >
                   Save Doctor
                 </button>

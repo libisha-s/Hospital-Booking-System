@@ -4,22 +4,21 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f0f7ff',
-          100: '#e0effe',
-          200: '#bae2fd',
-          300: '#7cc8fc',
-          400: '#38abf8',
-          500: '#0ea5e9', // Deep Sky Blue primary
-          600: '#0284c7', // Darker Blue
-          700: '#0369a1',
-          800: '#075985',
-          900: '#0c4a6e',
-        },
+      primary: {
+  50: '#f7faf6',
+  100: '#D4DDCB',
+  200: '#C3D4BD',
+  300: '#AAC8AC',
+  400: '#91BFA8',
+  500: '#719A90', // Main color
+  600: '#62877e',
+  700: '#53756d',
+  800: '#45625d',
+  900: '#374f4b',
+},
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],

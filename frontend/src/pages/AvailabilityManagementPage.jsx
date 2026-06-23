@@ -102,13 +102,13 @@ function AvailabilityManagementPage() {
       {/* Header controls */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold text-slate-800 dark:text-white">Doctor Availability Slots</h1>
+          <h1 className="text-3xl font-extrabold text-slate-800 text-black">Doctor Availability Slots</h1>
           <p className="text-sm text-slate-500 mt-1">Configure weekly workdays and scheduling intervals for consultants.</p>
         </div>
 
         <button
           onClick={handleOpenAdd}
-          className="bg-sky-500 hover:bg-sky-600 text-white font-bold px-5 py-3 rounded-xl shadow-md shadow-sky-500/10 hover:shadow-sky-500/20 transition-all duration-200 text-sm flex items-center gap-2 self-stretch sm:self-auto justify-center"
+          className="bg-sky-500 hover:bg-sky-600 text-black font-bold px-5 py-3 rounded-xl shadow-md shadow-sky-500/10 hover:shadow-sky-500/20 transition-all duration-200 text-sm flex items-center gap-2 self-stretch sm:self-auto justify-center"
         >
           <FaPlus />
           Add Availability
@@ -116,41 +116,41 @@ function AvailabilityManagementPage() {
       </div>
 
       {/* Grid List */}
-      <div className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-premium border border-slate-100 dark:border-slate-700/60 p-4">
+      <div className="bg-white bg-slate-800 rounded-3xl overflow-hidden shadow-premium border border-slate-100 border-slate-700/60 p-4">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse text-sm">
             <thead>
-              <tr className="border-b border-slate-100 dark:border-slate-700 text-slate-450 dark:text-slate-400 font-bold uppercase text-[10px] tracking-wider bg-slate-50/50 dark:bg-slate-900/50">
+              <tr className="border-b border-slate-100 border-slate-700 text-slate-450 text-slate-400 font-bold uppercase text-[10px] tracking-wider bg-slate-50/50 bg-slate-900/50">
                 <th className="py-3 px-4">Doctor</th>
                 <th className="py-3 px-4">Day</th>
                 <th className="py-3 px-4">Shift Hours</th>
                 <th className="py-3 px-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-700/60">
+            <tbody className="divide-y divide-slate-100 divide-slate-700/60">
               {availabilities.map((avail) => (
-                <tr key={avail.id} className="hover:bg-slate-50/30 dark:hover:bg-slate-750/30 transition-colors">
-                  <td className="py-3.5 px-4 font-bold text-slate-800 dark:text-slate-200">
+                <tr key={avail.id} className="hover:bg-slate-50/30 hover:bg-slate-750/30 transition-colors">
+                  <td className="py-3.5 px-4 font-bold text-slate-800 text-slate-200">
                     {getDoctorName(avail.doctorId)}
                   </td>
-                  <td className="py-3.5 px-4 font-semibold text-sky-600 dark:text-sky-450">
+                  <td className="py-3.5 px-4 font-semibold text-sky-600 text-sky-450">
                     {formatDay(avail.day)}
                   </td>
-                  <td className="py-3.5 px-4 font-medium text-slate-500 dark:text-slate-400">
+                  <td className="py-3.5 px-4 font-medium text-slate-500 text-slate-400">
                     {avail.startTime} - {avail.endTime}
                   </td>
                   <td className="py-3.5 px-4 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => handleOpenEdit(avail)}
-                        className="p-2 rounded-lg text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-950/30 transition-colors"
+                        className="p-2 rounded-lg text-sky-500 hover:bg-sky-50 hover:bg-sky-950/30 transition-colors"
                         title="Edit Availability"
                       >
                         <FaEdit />
                       </button>
                       <button
                         onClick={() => handleDelete(avail.id, getDoctorName(avail.doctorId), avail.day)}
-                        className="p-2 rounded-lg text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors"
+                        className="p-2 rounded-lg text-rose-500 hover:bg-rose-50 hover:bg-rose-950/30 transition-colors"
                         title="Delete Availability"
                       >
                         <FaTrash />
@@ -175,16 +175,16 @@ function AvailabilityManagementPage() {
       {/* Add/Edit Modal */}
       {modalOpen && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white dark:bg-slate-800 rounded-3xl w-full max-w-md shadow-2xl relative border border-slate-150 dark:border-slate-700/60 overflow-hidden transform transition-all animate-in fade-in zoom-in-95 duration-200">
+          <div className="bg-white bg-slate-800 rounded-3xl w-full max-w-md shadow-2xl relative border border-slate-150 border-slate-700/60 overflow-hidden transform transition-all animate-in fade-in zoom-in-95 duration-200">
             
             {/* Modal Header */}
-            <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-slate-700 bg-sky-50 dark:bg-slate-900/50">
-              <h3 className="text-lg font-extrabold text-slate-850 dark:text-white">
+            <div className="flex items-center justify-between p-6 border-b border-slate-100 border-slate-700 bg-sky-50 bg-slate-900/50">
+              <h3 className="text-lg font-extrabold text-slate-850 text-black">
                 {editingId ? 'Edit Schedule Slot' : 'Add Weekly Schedule'}
               </h3>
               <button
                 onClick={() => setModalOpen(false)}
-                className="p-1 rounded-lg text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700"
+                className="p-1 rounded-lg text-slate-400 hover:bg-slate-100 hover:bg-slate-700"
               >
                 <FaTimes />
               </button>
@@ -194,12 +194,12 @@ function AvailabilityManagementPage() {
             <form onSubmit={handleSave} className="p-6 space-y-4">
               
               <div>
-                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Select Doctor *</label>
+                <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Select Doctor *</label>
                 <select
                   value={formDoctorId}
                   onChange={(e) => setFormDoctorId(e.target.value)}
-                  className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white ${
-                    errors.doctorId ? 'border-rose-500' : 'border-slate-200 dark:border-slate-700'
+                  className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black ${
+                    errors.doctorId ? 'border-rose-500' : 'border-slate-200 border-slate-700'
                   }`}
                 >
                   <option value="">-- Choose Doctor --</option>
@@ -213,11 +213,11 @@ function AvailabilityManagementPage() {
               </div>
 
               <div>
-                <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Weekday *</label>
+                <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Weekday *</label>
                 <select
                   value={formDay}
                   onChange={(e) => setFormDay(e.target.value)}
-                  className="w-full bg-slate-55 dark:bg-slate-900 text-sm border border-slate-200 dark:border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white"
+                  className="w-full bg-slate-55 bg-slate-900 text-sm border border-slate-200 border-slate-700 px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black"
                 >
                   {DAYS.map((day) => (
                     <option key={day} value={day}>
@@ -229,28 +229,28 @@ function AvailabilityManagementPage() {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">Start Time *</label>
+                  <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">Start Time *</label>
                   <input
                     type="text"
                     placeholder="e.g. 09:00 AM"
                     value={formStartTime}
                     onChange={(e) => setFormStartTime(e.target.value)}
-                    className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white ${
-                      errors.startTime ? 'border-rose-500' : 'border-slate-200 dark:border-slate-700'
+                    className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black ${
+                      errors.startTime ? 'border-rose-500' : 'border-slate-200 border-slate-700'
                     }`}
                   />
                   {errors.startTime && <p className="text-xs text-rose-500 font-medium mt-1">{errors.startTime}</p>}
                 </div>
                 
                 <div>
-                  <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">End Time *</label>
+                  <label className="block text-xs font-bold text-slate-500 text-slate-400 mb-1">End Time *</label>
                   <input
                     type="text"
                     placeholder="e.g. 12:00 PM"
                     value={formEndTime}
                     onChange={(e) => setFormEndTime(e.target.value)}
-                    className={`w-full bg-slate-55 dark:bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 dark:text-white ${
-                      errors.endTime ? 'border-rose-500' : 'border-slate-200 dark:border-slate-700'
+                    className={`w-full bg-slate-55 bg-slate-900 text-sm border px-4 py-2.5 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 text-black ${
+                      errors.endTime ? 'border-rose-500' : 'border-slate-200 border-slate-700'
                     }`}
                   />
                   {errors.endTime && <p className="text-xs text-rose-500 font-medium mt-1">{errors.endTime}</p>}
@@ -258,17 +258,17 @@ function AvailabilityManagementPage() {
               </div>
 
               {/* Form Actions */}
-              <div className="flex justify-end gap-3 pt-4 border-t border-slate-100 dark:border-slate-700 mt-6">
+              <div className="flex justify-end gap-3 pt-4 border-t border-slate-100 border-slate-700 mt-6">
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="px-5 py-2 rounded-xl text-sm font-semibold border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-350 hover:bg-slate-50 dark:hover:bg-slate-750 transition-colors"
+                  className="px-5 py-2 rounded-xl text-sm font-semibold border border-slate-200 border-slate-700 text-slate-600 text-slate-350 hover:bg-slate-50 hover:bg-slate-750 transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-6 rounded-xl shadow-md text-sm transition-all"
+                  className="bg-sky-500 hover:bg-sky-600 text-black font-bold py-2 px-6 rounded-xl shadow-md text-sm transition-all"
                 >
                   Save Availability
                 </button>
