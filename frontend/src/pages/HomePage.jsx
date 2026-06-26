@@ -1,12 +1,27 @@
-import React, { useState } from 'react';
-import { useApp } from '../context/AppContext';
+import React ,{ useEffect, useState } from "react";
+import axios from "axios";
 import SearchBar from '../components/SearchBar';
 import DepartmentFilter from '../components/DepartmentFilter';
 import DoctorCard from '../components/DoctorCard';
 import { FaUserMd, FaRegCalendarCheck, FaAward, FaBuilding } from 'react-icons/fa';
 
 function HomePage() {
-  const { doctors, loading } = useApp();
+  const [doctors, setDoctors] = useState([]);
+const [loading, setLoading] = useState(true);
+
+useEffect(() => {
+    axios
+        .get("http://localhost:8080/api/doctors/all")
+        .then((response) => {
+            setDoctors(response.data);
+            setLoading(false);
+        })
+        .catch((error) => {
+            console.error(error);
+            setLoading(false);
+        });
+}, []);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedDept, setSelectedDept] = useState('ALL');
 
