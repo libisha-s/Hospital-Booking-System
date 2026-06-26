@@ -18,7 +18,7 @@ public DoctorController(DoctorService doctorService){
     this.doctorService=doctorService;
 }
 
-@GetMapping
+@GetMapping("/all")
     public List<doctorCardDto> getAllDoctors(){
     return doctorService.getAllDoctors();
 }

@@ -5,7 +5,7 @@ import DoctorCard from "../components/DoctorCard";
 function Home(){
     const[doctors,setDoctors]=useState([]);
     useEffect(()=>{
-        axios.get("http://localhost:8080/api/doctors")
+        axios.get("http://localhost:8080/api/doctors/all")
         .then((response)=>{
             setDoctors(response.data)
         })
